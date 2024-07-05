@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: 30px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Resize the window to see the current dimensions</h3>
+    <p>Width: <span id="width"></span></p>
+    <p>Height: <span id="height"></span></p>
+
+    <script>
+        updateDimensions();
+        function updateDimensions() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            document.getElementById('width').textContent = width;
+            document.getElementById('height').textContent = height;
+        }
+
+        window.addEventListener('resize', updateDimensions);
+    </script>
+</body>
+
+</html>

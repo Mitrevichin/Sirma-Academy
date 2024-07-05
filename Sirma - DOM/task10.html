@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h3>Input radius value and get the volume of a sphere.</h3>
+        <label>Radius <input type="text" name="radius"></label> <br>
+        <label>Volume <input type="text" name="volume" readonly value="0.0000"></label> <br>
+        <button onclick="radiusToVolume()">Calculate</button>
+    </main>
+
+    <script>
+        function radiusToVolume() {
+            const radiusInput = document.querySelector('[name="radius"]').value;
+            const volumeElement = document.querySelector('[name="volume"]');
+
+            let result = (4 / 3) * Math.PI * Math.pow(Number(radiusInput), 3);
+            volumeElement.value = result.toFixed(4);
+        }
+    </script>
+</body>
+
+</html>

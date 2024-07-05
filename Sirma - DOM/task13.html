@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .edit-input {
+            display: none;
+            margin-left: 10px;
+        }
+
+        .create {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="list-app">
+        <p>Click on the button to create a new item. Click on the edit button to edit the item.</p>
+        <ul id="items"></ul>
+        <input type="text" placeholder="Enter new item">
+        <button class="create" type="button">Create New</button>
+    </div>
+
+    <script>
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+        const items = document.getElementById('items');
+
+        button.addEventListener('click', () => {
+            const li = document.createElement('li');
+
+            const span = document.createElement('span');
+            span.textContent = input.value;
+            span.style.marginRight = '10px';
+            li.appendChild(span);
+
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            li.appendChild(editButton);
+
+            const editInput = document.createElement('input');
+            editInput.type = 'text';
+            editInput.className = 'edit-input';
+            li.appendChild(editInput);
+
+            items.appendChild(li);
+            input.value = '';
+
+            editButton.addEventListener('click', () => {
+                if (editButton.textContent === 'Edit') {
+                    editInput.style.display = 'inline';
+                    editInput.value = span.textContent;
+                    editButton.textContent = 'Save';
+                    span.style.display = 'none';
+                } else {
+                    span.textContent = editInput.value;
+                    editInput.style.display = 'none';
+                    span.style.display = 'inline';
+                    editButton.textContent = 'Edit';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

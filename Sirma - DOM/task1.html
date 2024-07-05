@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>JS DOM paragraph style</title>
+</head>
+
+<body>
+    <p id='text'>JavaScript Exercises</p>
+    <div>
+        <button onclick="restyle()">Style</button>
+    </div>
+
+    <script>
+        function restyle() {
+            const p = document.getElementById('text');
+            p.style.color = 'blue';
+            p.style.fontFamily = 'arial';
+            p.style.fontSize = '40px';
+        };
+    </script>
+</body>
+
+</html>
